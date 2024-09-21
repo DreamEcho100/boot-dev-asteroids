@@ -1,0 +1,19 @@
+Moving
+Now instead of rotating, we need the ship to move back and forth with the W and S keys.
+
+Assignment
+Create a new constant in constants.py to represent the player speed. I named mine PLAYER_SPEED, and gave it a value of 200.
+Add a new method to the Player class called .move(). It takes one argument: dt. We want to modify the player's position; but first, we need to do a little bit of math.
+We start with a unit vector pointing straight up from (0, 0) to (0, 1).
+We rotate that vector by the player's rotation, so it's pointing in the direction the player is facing.
+We multiply by PLAYER_SPEED * dt. A larger vector means faster movement.
+Add the vector to our position to move the player.
+Vector Math
+
+This is a course on programming, not vector math, so we've done the math for you. All those words boil down to these two lines of code:
+
+forward = pygame.Vector2(0, 1).rotate(self.rotation)
+self.position += forward * PLAYER_SPEED * dt
+Copy icon
+Modify the update method in the Player class to call the move method when the W or S keys are pressed.
+Run the game. You should now be able to fly around the screen with the W, A, S, and D keys!
