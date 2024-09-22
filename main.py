@@ -1,6 +1,6 @@
+import pygame
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
-import pygame
 from constants import *
 from player import Player
 from shot import Shot
@@ -51,9 +51,8 @@ def main():
                 print("Game over!")
             for shot in shots:
                 if asteroid.collides_with_circle(shot):
-                    asteroid.kill()
                     shot.kill()
-                    print("Asteroid destroyed!")
+                    asteroid.split()
 
         # player.update(dt)
         pygame.display.flip()
